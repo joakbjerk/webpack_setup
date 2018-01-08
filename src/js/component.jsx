@@ -1,10 +1,16 @@
 import React from 'react';
+import placeholderImage from '../../assets/350x150';
 
 export class Component extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        return <h2>My Component!</h2>
+        return (
+            <div>
+                <h2>My Component!</h2>
+                <img src={placeholderImage} alt="placeholder image" />
+            </div>
+        );
     }
 }
