@@ -22,12 +22,13 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
+
             {
-                test: /\.css$/,
+                test: /\.(sass|scss)$/,
                 exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract({
-                    use: 'css-loader',
-                }),
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -39,7 +40,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.css', '.png', '.jpg', '.gif']
+        extensions: ['.js', '.jsx']
     },
     devServer: {
         contentBase: path.SRC,

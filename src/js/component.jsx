@@ -1,5 +1,5 @@
 import React from 'react';
-import placeholderImage from '../../assets/350x150';
+import placeholderImage from '../../assets/350x150.png';
 
 export class Component extends React.Component {
     constructor(props) {
