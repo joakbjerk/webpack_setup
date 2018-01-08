@@ -7,6 +7,7 @@ const PATHS = {
     SRC: path.resolve(__dirname + '/src'),
     JS: path.resolve(__dirname + '/src/js'),
     HTML: path.resolve(__dirname + '/src/views'),
+    CSS: path.resolve(__dirname + '/src/css'),
 }
 
 module.exports = {
