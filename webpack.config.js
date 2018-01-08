@@ -1,24 +1,16 @@
 const webpack = require('webpack');
-const path = require('path');
+const path = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const PATHS = {
-    DIST: path.resolve(__dirname + '/dist'),
-    SRC: path.resolve(__dirname + '/src'),
-    JS: path.resolve(__dirname + '/src/js'),
-    HTML: path.resolve(__dirname + '/src/views'),
-    CSS: path.resolve(__dirname + '/src/css'),
-}
-
 module.exports = {
-    entry: `${PATHS.JS}/index.js`,
+    entry: `${path.JS}/index.js`,
     output: {
-        path: PATHS.DIST,
+        path: path.DIST,
         filename: 'bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: `${PATHS.HTML}/index.html`
+            template: `${path.HTML}/index.html`
         })
     ],
     module: {
@@ -34,7 +26,7 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devServer: {
-        contentBase: PATHS.SRC,
+        contentBase: path.SRC,
         compress: true,
         port: 9000
     }
