@@ -18324,7 +18324,7 @@ var Component = exports.Component = function (_React$Component) {
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "e484e3fa1959913947378735eddd969f.png";
+module.exports = __webpack_require__.p + "assets/e484e3fa1959913947378735eddd969f.png";
 
 /***/ }),
 /* 29 */

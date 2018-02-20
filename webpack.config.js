@@ -1,19 +1,25 @@
 const webpack = require('webpack');
-const path = require('./paths');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: `${path.JS}/index.js`,
+    entry: path.resolve(__dirname, 'src/js/index.js'),
     output: {
-        path: path.DIST,
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/[name].js'
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: `${path.HTML}/index.html`
+            template: path.resolve(__dirname, 'src/views/index.html'),
+            filename: 'views/index.html'
+
         }),
-        new ExtractTextPlugin('style.bundle.css'),
+        new ExtractTextPlugin('styles/[name].bundle.css')
     ],
     module: {
         rules: [
@@ -24,17 +30,17 @@ module.exports = {
             },
 
             {
-                test: /\.(sass|scss)$/,
+                test: /\.(css|sass|scss)$/,
                 exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
-                    use: ['css-loader', 'sass-loader']
+                    use: [{ loader: 'css-loader', options: { minimize: true } }, 'postcss-loader', 'sass-loader']
                 })
             },
             {
                 test: /\.(png|jpg|gif)$/,
                 exclude: /node_modules/,
                 use: [
-                    'file-loader',
+                    { loader: 'file-loader', options: { outputPath: 'assets' } }
                 ],
             },
         ]
@@ -43,7 +49,7 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devServer: {
-        contentBase: path.SRC,
+        contentBase: path.resolve(__dirname, 'src'),
         compress: true,
         port: 9000
     }
