@@ -12,6 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js'
     },
+    devtool: 'inline-source-map',
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
@@ -40,7 +41,7 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 exclude: /node_modules/,
                 use: [
-                    { loader: 'file-loader', options: { outputPath: 'assets' } }
+                    { loader: 'file-loader', options: { name: '[hash].[ext]', outputPath: 'assets/', publicPath: '../' } }
                 ],
             },
         ]
