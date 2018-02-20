@@ -8,8 +8,8 @@
     "ie > 10"
   ],
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "author": "joakbjerk",
   "license": "ISC",
