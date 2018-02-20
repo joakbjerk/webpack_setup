@@ -13,6 +13,10 @@ module.exports = {
         filename: 'js/[name].js'
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 9000
+    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
@@ -48,11 +52,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx']
-    },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'src'),
-        compress: true,
-        port: 9000
     }
 }
 

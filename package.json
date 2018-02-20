@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "webpack",
+    "start": "webpack-dev-server --open",
     "watch": "webpack --watch"
   },
   "author": "joakbjerk",
