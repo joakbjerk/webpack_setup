@@ -8,9 +8,8 @@
     "ie > 10"
   ],
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --open",
-    "watch": "webpack --watch"
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
   },
   "author": "joakbjerk",
   "license": "ISC",
