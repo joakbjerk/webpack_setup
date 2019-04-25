@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Component } from './component';
 import '../styles/styles.scss';
 
-//CONFLICT!
+//Coolest Master Conflict
 render(
     <Component />,
     document.querySelector("#render-target")
