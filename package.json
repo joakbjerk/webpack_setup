@@ -4,44 +4,48 @@
   "description": "My custom webpack setup",
   "main": "index.js",
   "browserslist": [
-    "> 1%",
-    "ie > 10"
+    "last 2 versions",
+    "not IE 11",
+    "not op_mini all",
+    "not dead"
   ],
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js"
+    "start": "npm run build:dev && npm run dev-server",
+    "build:dev": "webpack --config webpack.config.js --env development mode=development",
+    "build:prod": "webpack --config webpack.config.js --env production mode=production",
+    "dev-server": "webpack serve --config webpack.config.js --env development mode=development"
   },
   "author": "joakbjerk",
   "license": "ISC",
   "keywords": [],
   "devDependencies": {
-    "autoprefixer": "^7.2.5",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.18",
-    "css-loader": "^0.28.8",
-    "cssnano": "^3.10.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.6",
-    "html-webpack-plugin": "^2.30.1",
-    "node-sass": "^4.7.2",
-    "postcss": "^6.0.16",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^11.0.0",
-    "postcss-load-config": "^1.2.0",
-    "postcss-loader": "^2.0.10",
-    "sass-loader": "^6.0.6",
-    "sugarss": "^1.0.1",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.10.0",
-    "webpack-dev-server": "^2.10.0",
-    "webpack-merge": "^4.1.1"
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-transform-regenerator": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/runtime": "^7.14.5",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "core-js": "^3.14.0",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "postcss": "^8.3.2",
+    "postcss-csso": "^5.0.1",
+    "postcss-loader": "^6.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   }
 }
